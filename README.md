@@ -2,6 +2,8 @@
 The main purpose of this project is to familiarize various commomly 
 used convolutional network, such as VGG, GoogLeNet, ResNet, etc.
 
+The code is mainly reference https://github.com/kuangliu/pytorch-cifar
+
 ## Prerequisites
 * Python 3.7+
 * Pytorch 1.0+
