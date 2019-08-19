@@ -36,9 +36,11 @@ def train(net, train_data, test_data, num_epochs, optimizer, criterion):
     test_loss_win = viz.line(X=np.array([0]), Y=np.array([0]), opts=dict(title="test_loss"))
     train_y_axis = 0
     test_y_axis = 0
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="max", patience=2, verbose=True)
     for epoch in range(num_epochs):
         train_loss = 0.0
         train_acc = 0
+
         net = net.train()
         i = 0
         for im, label in train_data:
@@ -90,9 +92,10 @@ def train(net, train_data, test_data, num_epochs, optimizer, criterion):
             ))
         else:
             epoch_str = ("epoch %d, trian loss: %f, train acc: %f" % (epoch, train_loss/len(train_data), train_acc/len(
-                train_acc)))
+                train_data)))
 
         print(epoch_str)
+        scheduler.step(train_acc/len(train_data))
     print("end time: ", datetime.now())
     return train_loss_list, train_acc_list, test_loss_list, test_acc_list
 

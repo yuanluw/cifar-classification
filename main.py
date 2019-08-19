@@ -12,7 +12,7 @@ def get_augments():
     parser.add_argument("--net", type=str, default="VGG13", choices=("VGG11", "VGG13", "VGG16", "VGG19", "GoogLeNet",
                                                                      "ResNet18", "ResNet34", "ResNet50", "ResNet101",
                                                                      "ResNet152", "DRN_C_26", "DRN_C_42", "DRN_C_58",
-                                                                     "DRN_D_54", "DRN_A_50"),
+                                                                     "DRN_D_54", "DRN_A_50", "DenseNet_cifar"),
                         help="net select")
     parser.add_argument("--action", type=str, default="train", choices=("train", ))
     parser.add_argument("--lr", type=float, default=0.01)

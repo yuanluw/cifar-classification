@@ -24,6 +24,8 @@ class Config(object):
             return get_res_net(net_name)
         elif net_name.find("DRN") >= 0:
             return get_drn_net(net_name)
+        elif net_name.find("DenseNet") >= 0:
+            return get_dense_net(net_name)
 
 
 

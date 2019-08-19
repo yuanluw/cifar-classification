@@ -8,7 +8,7 @@ __copyright__ = 'Copyright @ 2019/7/29 0029, matt '
 
 import torch
 import torch.nn as nn
-
+from torchvision import models
 
 cfg = {
     'VGG11': [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
@@ -54,7 +54,7 @@ class VGG(nn.Module):
 
 
 if __name__ == "__main__":
-    net = VGG('VGG13', True)
+    net = models.vgg16(pretrained=True)
     print(net)
     x = torch.randn(1, 3, 32, 32)
     y = net(x)
